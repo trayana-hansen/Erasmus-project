@@ -1,18 +1,47 @@
 import bcrypt from 'bcrypt'
 import { User } from '../models/user.js';
 import { body, validationResult } from 'express-validator'
+import { createToken, verifyToken } from './JWT.js';
+import { DATE } from 'sequelize';
 
-export async function getUsers(req, res) {
+export const login = async (req, res) => {
+    const { email, password } = req.body;
     try {
-        const user = await User.findAll({
-            atributes: ["id", "firstname", "lastname", "email", "username", "country"],
-        });
-        res.json(user);
+        let user = await User.findOne({
+            where: { email }
+        })
+
+        if (!user) return res.status(400).json({ errors: { msg: "Invalid Email" } })
+        if (bcrypt.compareSync(password, user.password)) {
+            const token = createToken(
+                {
+                    email: newUser.email,
+                    lastname: newUser.lastname,
+                    password: newUser.password,
+                    createAt: newUser.createAt
+                },
+                true
+            )
+
+            res.cookie("refresh_token", token.refresh_token, {
+                expires: new DATE(Date.now() + 30 * 24 * 360000),
+                httpOnly: true
+            })
+
+            return res.json({
+                id: user.id,
+                email: user.email,
+                username: user.username,
+                accessToken: token.access_token
+            });
+        }
+        else return res.status(404).json({ errors: { msg: "Incorrenct password!" } })
     } catch (error) {
         res.status(500).json({
             message: error.message,
         });
     }
+    res.json("received");
 }
 
 export async function createUser(req, res) {
@@ -39,13 +68,42 @@ export async function createUser(req, res) {
                 fields: ["firstname", "lastname", "email", "username", "password", "country"],
             }
         );
-        return res.json(newUser);
+
+        const token = createToken(
+            {
+                email: newUser.email,
+                lastname: newUser.lastname,
+                password: newUser.password,
+                createAt: newUser.createAt
+            },
+            true
+        )
+
+        res.cookie("refresh_token", token.refresh_token, {
+            expires: new DATE(Date.now() + 30 * 24 * 360000),
+            httpOnly: true
+        })
+
+        return res.json({ ...newUser, accessToken: token.access_token });
     } catch (error) {
         res.status(500).json({
             message: error.message,
         });
     }
     res.json("received");
+}
+
+export async function getUsers(req, res) {
+    try {
+        const user = await User.findAll({
+            atributes: ["id", "firstname", "lastname", "email", "username", "country"],
+        });
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
 }
 
 export async function getUser(req, res) {
@@ -95,31 +153,4 @@ export async function deleteUser(req, res) {
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
-}
-
-export const login = async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        let user = await User.findOne({
-            where: { email }
-        })
-
-        if (!user) return res.status(400).json({ errors: { msg: "Invalid Email" } })
-        if (bcrypt.compareSync(password, user.password))
-            res.send({
-                id: user.id,
-                email: user.email,
-                username: user.username
-            })
-
-        else
-            res.status(404).json({ errors: { msg: "Incorrenct password!" } })
-
-        return res.json(newUser);
-    } catch (error) {
-        res.status(500).json({
-            message: error.message,
-        });
-    }
-    res.json("received");
 }
