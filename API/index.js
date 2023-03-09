@@ -12,7 +12,7 @@ import './models/progress.js'
 dotenv.config()
 async function main() {
     try {
-        await sequelize.sync({ force: true })
+        await sequelize.sync()
         app.listen(process.env.SERVER_PORT)
         console.log("Server Running")
     }

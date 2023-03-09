@@ -31,7 +31,7 @@ Monument.hasOne(Riddle, {
     sourceKey: 'id',
 });
 
-Riddle.belongsTo(Riddle, {
+Riddle.belongsTo(Monument, {
     foreignKey: 'monumentId',
     target: 'id',
 });

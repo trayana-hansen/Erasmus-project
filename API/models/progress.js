@@ -14,6 +14,6 @@ User.belongsToMany(Route, {
     through: 'progress',
 });
 
-Route.belongsTo(User, {
+Route.belongsToMany(User, {
     through: 'progress',
 });
