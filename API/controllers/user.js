@@ -96,3 +96,30 @@ export async function deleteUser(req, res) {
         return res.status(500).json({ message: error.message });
     }
 }
+
+export const login = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        let user = await User.findOne({
+            where: { email }
+        })
+
+        if (!user) return res.status(400).json({ errors: { msg: "Invalid Email" } })
+        if (bcrypt.compareSync(password, user.password))
+            res.send({
+                id: user.id,
+                email: user.email,
+                username: user.username
+            })
+
+        else
+            res.status(404).json({ errors: { msg: "Incorrenct password!" } })
+
+        return res.json(newUser);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+    res.json("received");
+}
