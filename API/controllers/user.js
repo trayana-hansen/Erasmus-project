@@ -23,10 +23,10 @@ export const login = async (req, res) => {
                 true
             )
 
-            // res.cookie("refresh_token", token.refresh_token, {
-            //     expires: new DATE(Date.now() + 30 * 24 * 360000),
-            //     httpOnly: true
-            // })
+            res.cookie("refresh_token", token.refresh_token, {
+                expire: new DATE(Date.now() + 30 * 24 * 360000),
+                httpOnly: true
+            })
 
             return res.json({
                 id: user.id,
@@ -41,7 +41,6 @@ export const login = async (req, res) => {
             message: error.message,
         });
     }
-    res.json("received");
 }
 
 export async function createUser(req, res) {
@@ -79,19 +78,16 @@ export async function createUser(req, res) {
             true
         )
 
-        // res.cookie("refresh_token", token.refresh_token, {
-        //     expires: new DATE(Date.now() + 30 * 24 * 360000),
-        //     httpOnly: true
-        // })
-        // const response = { ...newUser }
-        return res.json({ ...newUser, accessToken: token.access_token });
-        // return res.json(newUser);
+        res.cookie("refresh_token", token.refresh_token, {
+            expire: new DATE(Date.now() + 30 * 24 * 360000),
+            httpOnly: true
+        })
+        return res.json({ newUser, accessToken: token.access_token });
     } catch (error) {
         res.status(500).json({
             message: error.message,
         });
     }
-    res.json("received");
 }
 
 export async function getUsers(req, res) {

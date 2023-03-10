@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+import { cookieParser } from '../helpers/cookieParser.js'
 
 dotenv.config()
 
@@ -38,4 +39,17 @@ export const verifyAccessToken = (req, res, next) => {
   if (verifyToken(token)) return res.status(405).json({ message: "Invalid Token" })
   console.log("te")
   next();
+}
+
+export const grantNewAccessToken = (req, res) => {
+  const token = cookieParser("refresh_token", req.headers.cookie)
+  let decoded = this.verifyToken(token)
+  if (!decoded)
+    res.status(405).json({ message: "invalid token" })
+
+  else {
+    console.log(decoded)
+    let newToken = this.createToken({ email: decoded.email }, false)
+    res.send({ access_token: newToken.access_token })
+  }
 }

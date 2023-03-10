@@ -10,9 +10,9 @@ import {
 const router = Router();
 
 router.get("/dl/routes", getRoutes);
-router.post("/dl/routes", createRoute);
-router.put("/dl/routes/:id", updateRoute);
-router.delete("/dl/routes/:id", deleteRoute);
-router.get("/dl/routes/:id", getRoute);
+router.post("/dl/route", createRoute);
+router.put("/dl/route/:id", updateRoute);
+router.delete("/dl/route/:id", deleteRoute);
+router.get("/dl/route/:id", getRoute);
 
 export default router;
