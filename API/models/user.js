@@ -32,21 +32,17 @@ export const User = sequelize.define("user", {
     country: {
         type: DataTypes.STRING,
         allowNull: false,
-    },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: false,
     }
 })
 
-Route.hasMany(Review, {
+User.hasMany(Review, {
     foreignKey: 'userId',
     sourceKey: 'id',
     // onDelete: 'RESTRICT',
     // onUpdate: 'RESTRICT'
 });
 
-Review.belongsTo(Route, {
+Review.belongsTo(User, {
     foreignKey: 'userId',
     target: 'id',
 });
