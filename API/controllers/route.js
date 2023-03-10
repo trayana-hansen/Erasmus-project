@@ -24,10 +24,10 @@ export const getRoute = async (req, res) => {
 };
 
 export const createRoute = async (req, res) => {
-  const { city_id, description, difficulty, duration, accesibility } = req.body;
+  const { cityId, description, difficulty, duration, accesibility } = req.body;
 
   const newRoute = await Route.create({
-    city_id,
+    cityId,
     description,
     difficulty,
     duration,
