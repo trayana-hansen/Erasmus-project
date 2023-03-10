@@ -30,11 +30,12 @@ export const verifyToken = (token) => {
   }
 }
 
-export const verifyAccessToken = (req, res) => {
+export const verifyAccessToken = (req, res, next) => {
   const headers = req.headers
   if (!headers['authorization']) return res.status(405).json({ message: "Token not Provided" })
+  const token = headers['authorization'].split(" ")[1]
 
-  const token = headers['authorization'].split("")[1]
-
-  if (!this.verifyToken(token)) return res.status(405).json({ message: "Invalid Token" })
+  if (verifyToken(token)) return res.status(405).json({ message: "Invalid Token" })
+  console.log("te")
+  next();
 }
