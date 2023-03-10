@@ -24,10 +24,10 @@ export const getRiddle = async (req, res) => {
 };
 
 export const createRiddle = async (req, res) => {
-  const { monument_id, question, hint, answer } = req.body;
+  const { monumentId, question, hint, answer } = req.body;
 
   const newRiddle = await Riddle.create({
-    monument_id,
+    monumentId,
     question,
     hint,
     answer,
@@ -41,10 +41,10 @@ export const createRiddle = async (req, res) => {
 export const updateRiddle = async (req, res) => {
   try {
     const { id } = req.params;
-    const { monument_id, question, hint, answer } = req.body;
+    const { monumentId, question, hint, answer } = req.body;
 
     const riddle = await Riddle.findByPk(id);
-    (riddle.monument_id = monument_id),
+    (riddle.monumentId = monumentId),
       (riddle.question = question),
       (riddle.hint = hint),
       (riddle.answer = answer),

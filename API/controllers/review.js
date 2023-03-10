@@ -24,11 +24,11 @@ export const getReview = async (req, res) => {
 };
 
 export const createReview = async (req, res) => {
-  const { route_id, user_id, message, tittle, grade } = req.body;
+  const { routeId, userId, message, tittle, grade } = req.body;
 
   const newReview = await Review.create({
-    route_id,
-    user_id,
+    routeId,
+    userId,
     message,
     tittle,
     grade,
@@ -42,11 +42,11 @@ export const createReview = async (req, res) => {
 export const updateReview = async (req, res) => {
   try {
     const { id } = req.params;
-    const { route_id, user_id, message, tittle, grade } = req.body;
+    const { routeId, userId, message, tittle, grade  = req.body;
 
     const review = await Review.findByPk(id);
-    (review.route_id = route_id),
-      (review.user_id = user_id),
+    (review.routeId = routeId),
+      (review.userId = userId),
       (review.message = message),
       (review.tittle = tittle),
       (review.grade = grade),

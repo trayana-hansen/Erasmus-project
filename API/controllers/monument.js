@@ -24,13 +24,14 @@ export const getMonument = async (req, res) => {
 };
 
 export const createMonument = async (req, res) => {
-  const { name, latitude, longitude, description } = req.body;
+  const { name, latitude, longitude, description, routeId } = req.body;
 
   const newMonument = await Monument.create({
     name,
     latitude,
     longitude,
     description,
+    routeId,
     createdAt: new Date(),
     updatedAt: new Date(),
   });
@@ -41,7 +42,7 @@ export const createMonument = async (req, res) => {
 export const updateMonument = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, latitude, longitude, description } = req.body;
+    const { name, latitude, longitude, description, routeId } = req.body;
 
     const monument = await Monument.findByPk(id);
     (monument.name = name),
@@ -49,6 +50,7 @@ export const updateMonument = async (req, res) => {
       (monument.longitude = latitude),
       (monument.location = longitude),
       (monument.description = description),
+      (monument.routeId = routeId),
       await monument.save();
 
     res.json(monument);
