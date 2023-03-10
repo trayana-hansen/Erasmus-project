@@ -24,10 +24,10 @@ export const getRoute = async (req, res) => {
 };
 
 export const createRoute = async (req, res) => {
-  const { city_id, description, difficulty, duration, accesibility } = req.body;
+  const { cityId, description, difficulty, duration, accesibility } = req.body;
 
   const newRoute = await Route.create({
-    city_id,
+    cityId,
     description,
     difficulty,
     duration,
@@ -42,13 +42,15 @@ export const createRoute = async (req, res) => {
 export const updateRoute = async (req, res) => {
   try {
     const { id } = req.params;
-    const { description, difficulty, duration, accesibility } = req.body;
+    const { cityId, description, difficulty, duration, accesibility } =
+      req.body;
 
     const route = await Route.findByPk(id);
-    route.description = description,
-    route.difficulty = difficulty,
-    route.duration = duration,
-    route.accesibility = accesibility
+    (route.cityId = cityId),
+      (route.description = description),
+      (route.difficulty = difficulty),
+      (route.duration = duration),
+      (route.accesibility = accesibility);
 
     await route.save();
 
