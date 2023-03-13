@@ -1,9 +1,11 @@
-@import "../base/global";
+@use "../base/global";
 
 .backgroundHome {
   background-image: url("../../../../public/img/map-outlines/Homepage\ -\ map\ lines.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 .homeHeading {
   text-align: center;
