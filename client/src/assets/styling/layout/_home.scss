@@ -1,13 +1,42 @@
+@import "../base/global";
+
+.backgroundHome {
+  background-image: url("../../../../public/img/map-outlines/Homepage\ -\ map\ lines.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
 .homeHeading {
-    text-align: center;
-    margin: 1em;
-    font-size: 3em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 3em;
 }
 
 .player {
-    width: 20em;
+  margin-top: 0;
+  width: 20em;
 }
 
-.home-btn {
-    width: 15em;
+.home-btn-r,
+.home-btn-s {
+  width: 20em;
+  font-weight: bold;
+}
+.home-btn-r {
+  background-color: $blue;
+  color: white;
+
+  &:hover {
+    color: white !important;
+    border: none;
+  }
+}
+.home-btn-s {
+  border: 3px solid $blue;
+  color: $blue;
+
+  &:hover {
+    color: $blue !important;
+    border: 3px solid $blue !important;
+  }
 }
