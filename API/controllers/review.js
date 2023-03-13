@@ -42,7 +42,7 @@ export const createReview = async (req, res) => {
 export const updateReview = async (req, res) => {
   try {
     const { id } = req.params;
-    const { routeId, userId, message, tittle, grade } = req.body
+    const { routeId, userId, message, tittle, grade } = req.body;
 
     const review = await Review.findByPk(id);
     (review.routeId = routeId),

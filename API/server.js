@@ -7,10 +7,13 @@ import routeMonuments from "./routes/monument.js";
 import routeProgresses from "./routes/progress.js";
 import routeReviews from "./routes/review.js";
 import routeRiddles from "./routes/riddle.js";
+import routeImages from "./routes/image.js";
+
 const app = express();
 
 app.use(express.json());
 
+app.use(routeImages);
 app.use(routerUser);
 app.use(verifyAccessToken.bind(), routeRoutes);
 app.use(verifyAccessToken.bind(), routeCities);
