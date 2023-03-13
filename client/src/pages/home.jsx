@@ -1,5 +1,8 @@
-const Home = () => {
-  return <></>;
+export const Home = () => {
+  return <>
+  <h1>Riddlin</h1>
+  <img src="" alt="" />
+  </>;
 };
 
-export default Home;
+
