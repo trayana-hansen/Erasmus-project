@@ -7,6 +7,7 @@ import routeMonuments from "./routes/monument.js";
 import routeProgresses from "./routes/progress.js";
 import routeReviews from "./routes/review.js";
 import routeRiddles from "./routes/riddle.js";
+import routeImages from "./routes/image.js";
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.use(verifyAccessToken, routeMonuments);
 app.use(verifyAccessToken, routeProgresses);
 app.use(verifyAccessToken, routeReviews);
 app.use(verifyAccessToken, routeRiddles);
+app.use(routeImages);
 
 export default app;
