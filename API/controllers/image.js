@@ -25,21 +25,21 @@ export const getImage = async (req, res) => {
 };
 
 export const createImage = async (req, res) => {
-  // const { img } = req.body;
-
-  // const newCity = await City.create({
-  //   img,
-  //   createdAt: new Date(),
-  //   updatedAt: new Date(),
-  // });
+  const { img } = req.body;
 
   const image = req.file;
 
-  sharp(image.buffer);
+  const newImg = await Img.create({
+    img: image.buffer,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
 
-  console.log(image);
+  // sharp(image.buffer);
 
-  res.json(newImage);
+  console.log(newImg);
+
+  res.json(newImg);
 };
 
 export const updateImage = async (req, res) => {

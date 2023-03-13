@@ -9,7 +9,7 @@ import {
 
 const router = Router();
 
-router.get("/dl/progress", getProgresses);
+router.get("/dl/progresses", getProgresses);
 router.post("/dl/progress", createProgress);
 router.put("/dl/progress/:userId/:routeId", updateProgress);
 router.delete("/dl/progress/:userId/:routeId", deleteProgress);

@@ -13,13 +13,13 @@ const app = express();
 
 app.use(express.json());
 
-app.use(verifyAccessToken, routeRoutes);
-app.use(verifyAccessToken, routeCities);
-app.use(verifyAccessToken, routerUser);
-app.use(verifyAccessToken, routeMonuments);
-app.use(verifyAccessToken, routeProgresses);
-app.use(verifyAccessToken, routeReviews);
-app.use(verifyAccessToken, routeRiddles);
 app.use(routeImages);
+app.use(routerUser);
+app.use(verifyAccessToken.bind(), routeRoutes);
+app.use(verifyAccessToken.bind(), routeCities);
+app.use(verifyAccessToken.bind(), routeMonuments);
+app.use(verifyAccessToken.bind(), routeProgresses);
+app.use(verifyAccessToken.bind(), routeReviews);
+app.use(verifyAccessToken.bind(), routeRiddles);
 
 export default app;

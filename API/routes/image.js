@@ -8,11 +8,11 @@ import {
   deleteImage,
 } from "../controllers/image.js";
 
-const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer({ dest: "uploads/" });
 const router = Router();
 
 router.get("/dl/images", getImages);
-router.post("/dl/images", upload.single("img"), createImage);
+router.post("/dl/images", upload.single('img'), createImage);
 router.put("/dl/images/:id", updateImage);
 router.delete("/dl/images/:id", deleteImage);
 router.get("/dl/images/:id", getImage);
