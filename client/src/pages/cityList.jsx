@@ -1,13 +1,16 @@
 import { Card } from "antd";
+
+const endpoint = "http://localhost:4000/dl/cities";
+
 const Cities = () => (
   <Card
     style={{
       backgroundImage:
-        "url('https://i.blogs.es/91493f/sequelize/1366_2000.png')",
+        "url('/img/cities/arucas.png')",
       width: 300,
     }}
   >
-    <h1>City's name</h1>
+    <h1>Arucas</h1>
   </Card>
 );
 export default Cities;
