@@ -1,4 +1,4 @@
-@use "../base/global";
+@use "../base/global" as g;
 
 .backgroundHome {
   background-image: url("../../../../public/img/map-outlines/Homepage\ -\ map\ lines.png");
@@ -25,7 +25,7 @@
   font-weight: bold;
 }
 .home-btn-r {
-  background-color: $blue;
+  background-color: g.$blue;
   color: white;
 
   &:hover {
@@ -34,11 +34,11 @@
   }
 }
 .home-btn-s {
-  border: 3px solid $blue;
-  color: $blue;
+  border: 3px solid g.$blue;
+  color: g.$blue;
 
   &:hover {
-    color: $blue !important;
-    border: 3px solid $blue !important;
+    color: g.$blue !important;
+    border: 3px solid g.$blue !important;
   }
 }
