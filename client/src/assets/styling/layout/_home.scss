@@ -1,4 +1,4 @@
-@use '../base/global' as var;
+@use "../base/global" as var;
 
 .background {
   position: absolute;
@@ -24,7 +24,7 @@
 .homeHeading {
   text-align: center;
   font-size: 3em;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .player {
@@ -46,7 +46,7 @@
 
   &:hover {
     color: white !important;
-    border-color: var.$blue ;
+    border-color: var.$blue;
   }
 }
 
