@@ -9,14 +9,14 @@ export const User = sequelize.define("user", {
         primaryKey: true,
         autoIncrement: true,
     },
-    firstname: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    lastname: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+    // firstname: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    // },
+    // lastname: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    // },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,11 +28,11 @@ export const User = sequelize.define("user", {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
-    },
-    country: {
-        type: DataTypes.STRING,
-        allowNull: false,
     }
+    // country: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    // }
 })
 
 User.hasMany(Review, {

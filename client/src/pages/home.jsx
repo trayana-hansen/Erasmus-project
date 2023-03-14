@@ -1,6 +1,7 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Button, Space } from "antd";
 import { useNavigate } from "react-router-dom";
+import { Bground } from "../components/bground";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -12,7 +13,12 @@ export const Home = () => {
 
   return (
     <>
-      <div className="backgroundHome">
+      <Bground />
+      <Space direction="vertical"
+        size="middle"
+        align="center"
+        style={{ display: "flex" }}
+        className="home-container">
         <h1 className="homeHeading">Riddlin</h1>
         <Player
           src="https://assets7.lottiefiles.com/packages/lf20_svy4ivvy.json"
@@ -36,7 +42,8 @@ export const Home = () => {
             LOGIN
           </Button>
         </Space>
-      </div>
+      </Space>
+
     </>
   );
 };

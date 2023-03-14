@@ -11,13 +11,14 @@ import "./models/progress.js";
 
 dotenv.config();
 async function main() {
-  try {
-    await sequelize.sync({ force: true });
-    app.listen(process.env.SERVER_PORT);
-    console.log("Server Running");
-  } catch {
-    console.log("Unable to connect to Database");
-  }
+    try {
+        await sequelize.sync({ alter: true })
+        app.listen(process.env.SERVER_PORT)
+        console.log("Server Running")
+    }
+    catch {
+        console.log("Unable to connect to Database")
+    }
 }
 
 main();
