@@ -16,7 +16,7 @@ export const login = async (req, res) => {
             const token = createToken(
                 {
                     email: user.email,
-                    lastname: user.lastname,
+                    username: user.username,
                     password: user.password,
                     createAt: user.createAt
                 },
@@ -44,7 +44,7 @@ export const login = async (req, res) => {
 }
 
 export async function createUser(req, res) {
-    const { firstname, lastname, email, username, password, country } = req.body;
+    const { email, username, password } = req.body;
     try {
         let user = await User.findOne({
             where: { email }
@@ -54,24 +54,21 @@ export async function createUser(req, res) {
 
         let newUser = await User.create(
             {
-                firstname,
-                lastname,
                 email,
                 username,
                 password: bcrypt.hashSync(password, 10),
-                country,
                 createAt: new Date(),
                 updateAt: new Date()
             },
             {
-                fields: ["firstname", "lastname", "email", "username", "password", "country"],
+                fields: ["email", "username", "password"],
             }
         );
 
         const token = createToken(
             {
                 email: newUser.email,
-                lastname: newUser.lastname,
+                username: newUser.username,
                 password: newUser.password,
                 createAt: newUser.createAt
             },
@@ -93,7 +90,7 @@ export async function createUser(req, res) {
 export async function getUsers(req, res) {
     try {
         const user = await User.findAll({
-            atributes: ["id", "firstname", "lastname", "email", "username", "country"],
+            atributes: ["id", "email", "username"],
         });
         res.json(user);
     } catch (error) {
@@ -111,7 +108,6 @@ export async function getUser(req, res) {
                 id,
             },
         });
-        console.log(user)
         res.json(user);
     } catch (error) {
         res.status(500).json({
@@ -123,11 +119,9 @@ export async function getUser(req, res) {
 export const updateUser = async (req, res) => {
     try {
         const { id } = req.params;
-        const { firstname, lastname, username, password } = req.body;
+        const { username, password } = req.body;
 
         const user = await User.findByPk(id);
-        user.firstname = firstname;
-        user.lastname = lastname;
         user.username = username;
         user.password = password;
         await user.save();

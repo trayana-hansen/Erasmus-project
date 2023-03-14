@@ -2,18 +2,18 @@ import axios from "axios"
 import { Button, Form, Input, Space } from 'antd';
 import { Logo } from '../components/logo.jsx'
 import { useNavigate } from "react-router-dom";
+import { Bground } from "../components/bground.jsx";
+import { login } from "../services/JWT.js";
 
 export const Login = () => {
     const navigate = useNavigate()
     const onFinish = (values) => {
-        // console.log('Success:', values);
-        // userLog.username = values.username;
-        // setValue(() => !value)
-        // navigate("/home")
+        login(values.email, values.password)
+        navigate("/cities")
     };
 
     const onFinishFailed = (errorInfo) => {
-        // console.log('Failed:', errorInfo);
+        console.log('Failed:', errorInfo);
     };
 
     const goTo = () => {
@@ -22,6 +22,7 @@ export const Login = () => {
 
     return (
         <>
+            <Bground />
             <Logo />
             <div className="forms-pages-container">
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
@@ -29,7 +30,7 @@ export const Login = () => {
                 </Space>
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
                     <Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
-                        <Form.Item label="Email" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+                        <Form.Item label="Email" name="email" rules={[{ required: true, message: 'Please input your username!' }]}>
                             <Input />
                         </Form.Item>
 
