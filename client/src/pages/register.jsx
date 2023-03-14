@@ -1,20 +1,20 @@
 import { Logo } from "../components/logo"
 import { Button, Checkbox, Form, Input, Space } from 'antd';
 import { useNavigate } from "react-router-dom";
+import { Bground } from "../components/bground";
+import { register } from "../services/JWT";
 
 export const Register = () => {
 
     const navigate = useNavigate()
 
     const onFinish = (values) => {
-        // console.log('Success:', values);
-        // userLog.username = values.username;
-        // setValue(() => !value)
-        // navigate("/home")
+        register(values.email, values.username, values.password)
+        navigate("/cities")
     };
 
     const onFinishFailed = (errorInfo) => {
-        // console.log('Failed:', errorInfo);
+        console.log('Failed:', errorInfo);
     };
 
     const goTo = () => {
@@ -22,6 +22,7 @@ export const Register = () => {
     }
     return (
         <>
+            <Bground />
             <Logo />
             <div className="forms-pages-container">
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
@@ -33,16 +34,16 @@ export const Register = () => {
                             <Input />
                         </Form.Item>
 
+                        <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+                            <Input />
+                        </Form.Item>
+
                         <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
                             <Input.Password />
                         </Form.Item>
 
-                        <Form.Item label="Confirm Password" name="confirm-password" rules={[{ required: true, message: 'Please input your password!' }]}>
-                            <Input.Password />
-                        </Form.Item>
-
                         <Button className="submit-btn" htmlType="submit" size="large">
-                            Submit
+                            Sing Up
                         </Button>
                     </Form>
                 </Space>

@@ -1,42 +1,61 @@
-@import "../base/global";
+@use '../base/global' as var;
 
-.backgroundHome {
+.background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
   background-image: url("../../../../public/img/map-outlines/Homepage\ -\ map\ lines.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
+
+.home-container {
+  padding-top: 7vh;
+  height: 100 vh;
+  align-self: center;
+  justify-self: center;
+}
+
 .homeHeading {
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: 0;
   font-size: 3em;
+  font-weight: 400;
 }
 
 .player {
-  margin-top: 0;
   width: 20em;
 }
 
 .home-btn-r,
 .home-btn-s {
   width: 20em;
+  height: 3em;
+  box-shadow: 0px 0px 3px 0px var.$dark-blue;
   font-weight: bold;
 }
+
 .home-btn-r {
-  background-color: $blue;
+  background-color: var.$blue;
   color: white;
+  border: none;
 
   &:hover {
     color: white !important;
-    border: none;
+    border-color: var.$blue ;
   }
 }
+
 .home-btn-s {
-  border: 3px solid $blue;
-  color: $blue;
+  border: 2px solid var.$blue;
+  color: var.$blue;
 
   &:hover {
-    color: $blue !important;
-    border: 3px solid $blue !important;
+    color: var.$blue !important;
+    border: 3px solid var.$blue !important;
   }
 }
