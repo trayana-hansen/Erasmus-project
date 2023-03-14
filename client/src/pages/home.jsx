@@ -19,7 +19,7 @@ export const Home = () => {
         align="center"
         style={{ display: "flex" }}
         className="home-container">
-        <h1 className="homeHeading">Riddlin</h1>
+        <h1 className="homeHeading">RIDDLIN</h1>
         <Player
           src="https://assets7.lottiefiles.com/packages/lf20_svy4ivvy.json"
           className="player"

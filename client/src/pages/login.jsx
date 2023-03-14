@@ -26,7 +26,7 @@ export const Login = () => {
             <Logo />
             <div className="forms-pages-container">
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
-                    <h2>Welcome Back!</h2>
+                    <h2>WELCOME BACK</h2>
                 </Space>
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
                     <Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
@@ -38,7 +38,7 @@ export const Login = () => {
                             <Input.Password />
                         </Form.Item>
                         <Button className="submit-btn" htmlType="submit" size="large">
-                            Submit
+                            SUBMIT
                         </Button>
                     </Form>
                 </Space>
