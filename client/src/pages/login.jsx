@@ -7,7 +7,9 @@ import Header from "../components/header.jsx";
 export const Login = () => {
     const navigate = useNavigate()
     const onFinish = (values) => {
-        login(values.email, values.password).then(navigate("/cities"))
+        login(values.email, values.password)
+            .then(res => navigate('/cities'))
+            .catch(err => console.log(err))
     };
 
     const onFinishFailed = (errorInfo) => {

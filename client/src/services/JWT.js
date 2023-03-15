@@ -28,7 +28,7 @@ export const login = (email, password) => {
         localStorage.setItem("user", JSON.stringify(res.data));
       }
       return res.data;
-    });
+    })
 };
 
 export const logout = () => {

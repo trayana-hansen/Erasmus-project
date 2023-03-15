@@ -79,7 +79,12 @@ export async function createUser(req, res) {
             expire: new DATE(Date.now() + 30 * 24 * 360000),
             httpOnly: true
         })
-        return res.json({ newUser, accessToken: token.access_token });
+        return res.json({
+            id: newUser.id,
+            email: newUser.email,
+            username: newUser.username,
+            accessToken: token.access_token
+        });
     } catch (error) {
         res.status(500).json({
             message: error.message,
