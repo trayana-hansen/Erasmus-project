@@ -4,6 +4,7 @@ import { Cities } from "./pages/cityList";
 import { City } from "./pages/city";
 import { Home } from "./pages/home";
 import { Register } from "./pages/register";
+import { RoutePath } from "./pages/route";
 import "./assets/styling/app.scss";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/" element={<Home />} />
+        <Route path="/route" element={<RoutePath />} />
       </Routes>
     </Router>
   );
