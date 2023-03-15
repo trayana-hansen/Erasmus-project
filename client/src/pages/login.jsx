@@ -5,11 +5,10 @@ import { login } from "../services/JWT.js";
 import Header from "../components/header.jsx";
 
 export const Login = () => {
-  const navigate = useNavigate();
-  const onFinish = (values) => {
-    login(values.email, values.password);
-    navigate("/cities");
-  };
+    const navigate = useNavigate()
+    const onFinish = (values) => {
+        login(values.email, values.password).then(navigate("/cities"))
+    };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -22,7 +21,7 @@ export const Login = () => {
     return (
         <>
             <Bground />
-            <Header />
+            <Header page="type-1" />
             <div className="forms-pages-container">
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
                     <h2>WELCOME BACK</h2>
