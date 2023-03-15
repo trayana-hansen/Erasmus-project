@@ -9,6 +9,22 @@ export const getRoutes = async (req, res) => {
   }
 };
 
+export const getRoutesByCity = async (req, res) => {
+  try {
+    const { cityId } = req.params;
+    const route = await Route.findAll(
+      {
+        where: {
+          cityId,
+        },
+      }
+    );
+    res.json(route);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 export const getRoute = async (req, res) => {
   try {
     const { id } = req.params;

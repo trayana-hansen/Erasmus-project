@@ -1,19 +1,5 @@
 @use "../base/global" as var;
 
-.background {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../../../../public/img/map-outlines/Homepage\ -\ map\ lines.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
 .home-container {
   padding-top: 7vh;
   height: 100 vh;
