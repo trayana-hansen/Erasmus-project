@@ -1,0 +1,7 @@
+@use '../base/global' as var;
+
+.start-btn {
+    padding: 0;
+    width: fit-content;
+    background-color: var.$blue
+}
