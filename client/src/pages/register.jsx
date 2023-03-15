@@ -1,8 +1,8 @@
-import { Logo } from "../components/logo";
 import { Button, Checkbox, Form, Input, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Bground } from "../components/bground";
 import { register } from "../services/JWT";
+import Header from "../components/header";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export const Register = () => {
   return (
     <>
       <Bground />
-      <Logo />
+      <Header />
       <div className="forms-pages-container">
         <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
           <h2>Create an Account</h2>

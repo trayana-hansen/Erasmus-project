@@ -1,9 +1,8 @@
-import axios from "axios"
 import { Button, Form, Input, Space } from 'antd';
-import { Logo } from '../components/logo.jsx'
 import { useNavigate } from "react-router-dom";
 import { Bground } from "../components/bground.jsx";
 import { login } from "../services/JWT.js";
+import Header from "../components/header.jsx";
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -23,7 +22,7 @@ export const Login = () => {
     return (
         <>
             <Bground />
-            <Logo />
+            <Header />
             <div className="forms-pages-container">
                 <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
                     <h2>Welcome Back!</h2>

@@ -43,3 +43,64 @@ h6 {
 h2 {
   font-size: 2.12em;
 }
+
+
+.background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../../public/img/map-outlines/Homepage\ -\ map\ lines.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.header {
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em 1em;
+}
+
+.logo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 1em;
+    font-weight: 400;
+  }
+}
+
+.dropdown-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 2em;
+}
+
+.dropdown-content {
+  padding: 1em 0;
+  width: 100%;
+
+  .btn-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3em;
+    width: 100%;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+}
