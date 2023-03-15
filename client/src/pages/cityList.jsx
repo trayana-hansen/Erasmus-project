@@ -26,7 +26,7 @@ export const Cities = () => {
   return (
     <>
       <Bground />
-      <Header />
+      <Header page="type-2" />
       <div className="">
         <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
           <h2>Choose a city</h2>

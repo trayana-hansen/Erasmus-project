@@ -22,7 +22,7 @@ export const Register = () => {
   return (
     <>
       <Bground />
-      <Header />
+      <Header page="type-1" />
       <div className="forms-pages-container">
         <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
           <h2>CREATE ACCOUNT</h2>

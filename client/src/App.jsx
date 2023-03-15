@@ -5,6 +5,7 @@ import { City } from "./pages/city";
 import { Home } from "./pages/home";
 import { Register } from "./pages/register";
 import { RoutesPage } from "./pages/routes";
+import { Profile } from "./pages/profile";
 import "./assets/styling/app.scss";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/:city/:cityId/routes" element={<RoutesPage />} />
+        <Route path="/user/:id/profile" element={<Profile />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>
