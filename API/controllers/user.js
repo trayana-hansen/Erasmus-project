@@ -23,10 +23,10 @@ export const login = async (req, res) => {
                 true
             )
 
-            res.cookie("refresh_token", token.refresh_token, {
-                expire: new DATE(Date.now() + 30 * 24 * 360000),
-                httpOnly: true
-            })
+            // res.cookie("refresh_token", token.refresh_token, {
+            //     expire: new DATE(Date.now() + 30 * 24 * 360000),
+            //     httpOnly: true
+            // })
 
             return res.json({
                 id: user.id,

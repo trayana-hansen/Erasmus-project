@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 export const CardRoute = () => {
   const { route, routeId } = useParams();
-  const endpoint = "http://localhost:4000/dl/route/monuments/";
+  const endpoint = "https://erasmus-project-sq9c.onrender.com/dl/route/monuments/";
   const [monuments, setMonuments] = useState([]);
 
   const [open, setOpen] = useState(false);
@@ -66,7 +66,7 @@ export const CardRoute = () => {
       </Space>
       <Modal open={open}
         onCancel={handleCancel}
-        style={{ padding: "0" }}>
+        style={{ padding: "0xº  " }}>
         <div className="modal-map">
           <img src="/img/maproutes/popular-laspalmas.png" alt="" />
         </div>
