@@ -24,7 +24,7 @@ export const RoutesPage = () => {
   };
 
   const onChange = (currentSlide) => {
-    console.log(currentSlide);
+    // console.log(currentSlide);
   };
 
   return (
@@ -32,30 +32,34 @@ export const RoutesPage = () => {
       <Bground />
       <Header />
       <div>
-        <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
+        <Space className="city-title" direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
           <h2>{city.toUpperCase()}</h2>
         </Space>
-        <div>
-          <Swiper
-            effect={"cards"}
-            grabCursor={true}
-            modules={[EffectCards]}
-            className="mySwiper"
-          >
-            {routes.length > 0 ?
-              routes.map((route) => {
-                console.log(route)
+        <div className="swiper-container">
+          {routes.length > 0 ?
+            <Swiper
+              effect={"cards"}
+              grabCursor={true}
+              modules={[EffectCards]}
+              className="mySwiper">
+              {routes.map((route) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={route.id}>
                     <div className="route-img">
-                      <img src={`/img/routes/${route.description}.png`} alt="" />
+                      <img src={`/img/routes/${route.title}.png`} alt="" />
                     </div>
-                    <div className="description-img"></div>
+                    <div className="description-img">
+                      <h4>{route.description}</h4>
+                    </div>
                   </SwiperSlide>
                 )
-              })
-              : null}
-          </Swiper>
+              })}
+            </Swiper>
+            :
+            <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
+              <h3>No routes added</h3>
+            </Space>
+          }
         </div>
       </div>
     </>

@@ -7,7 +7,6 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const goTo = (dest) => {
-    console.log(dest);
     navigate(`/${dest}`);
   };
 

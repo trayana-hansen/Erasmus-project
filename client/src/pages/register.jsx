@@ -8,11 +8,15 @@ export const Register = () => {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    register(values.email, values.username, values.password);
-    navigate("/cities");
+    register(values.email, values.username, values.password)
+      .then(res => {
+        navigate("/cities")
+      })
+      .catch(err => console.log(err))
   };
 
   const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
     console.log("Failed:", errorInfo);
   };
 
@@ -45,7 +49,10 @@ export const Register = () => {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: "Please input your email!" }]}
+              rules={[
+                { required: true, message: "Please input a email!" },
+                { type: "email", message: "The email is not valid" },
+              ]}
             >
               <Input />
             </Form.Item>
@@ -54,7 +61,9 @@ export const Register = () => {
               label="Username"
               name="username"
               rules={[
-                { required: true, message: "Please input your username!" },
+                { required: true, message: "Please input a username!" },
+                { min: 3, message: "The username is too short!" },
+                { max: 20, message: "The username is too long!" },
               ]}
             >
               <Input />
@@ -64,7 +73,12 @@ export const Register = () => {
               label="Password"
               name="password"
               rules={[
-                { required: true, message: "Please input your password!" },
+                {
+                  required: true,
+                  message: "Please input a password!",
+                },
+                { min: 8, message: "The password is too short!" },
+                { max: 15, message: "The password is too long!" },
               ]}
             >
               <Input.Password />
@@ -84,4 +98,5 @@ export const Register = () => {
       </div>
     </>
   );
+
 };

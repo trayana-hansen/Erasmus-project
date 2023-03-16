@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.headerRoutes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 .card-image {
   width: 200px;
