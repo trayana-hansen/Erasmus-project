@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:4000/dl/user/";
-const navigate = useNavigate
+const API_URL = "https://erasmus-project-sq9c.onrender.com/dl/user/";
 
 export const register = (email, username, password) => {
   return axios.post(API_URL + "new", {

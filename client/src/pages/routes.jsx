@@ -12,7 +12,7 @@ import "swiper/css/effect-cards";
 
 export const RoutesPage = () => {
   const { city, cityId } = useParams()
-  const endpoint = "http://localhost:4000/dl/city/routes/";
+  const endpoint = "https://erasmus-project-sq9c.onrender.com/dl/city/routes/";
   const [routes, setRoutes] = useState([]);
   const navigate = useNavigate();
 

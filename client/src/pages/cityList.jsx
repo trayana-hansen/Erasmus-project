@@ -7,7 +7,7 @@ import { Logo } from "../components/logo";
 import Header from "../components/header";
 
 export const Cities = () => {
-  const endpoint = "http://localhost:4000/dl/cities";
+  const endpoint = "https://erasmus-project-sq9c.onrender.com/dl/cities";
   const [cities, setCities] = useState([]);
   const navigate = useNavigate();
 

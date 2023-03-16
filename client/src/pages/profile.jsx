@@ -8,7 +8,7 @@ import axios from "axios"
 export const Profile = () => {
     const navigate = useNavigate();
     const currentUser = JSON.parse(localStorage.getItem("user"))
-    const endpoint = "http://localhost:4000/dl/user/";
+    const endpoint = "https://erasmus-project-sq9c.onrender.com/dl/user/";
     const onFinish = (values) => {
         const username = values.username ? values.username : ""
         const password = values.password ? values.password : ""
