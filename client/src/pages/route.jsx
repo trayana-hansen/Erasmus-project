@@ -26,7 +26,7 @@ export const RouteInfo = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <img src={require("../assets/img/cities/arucas.png")} alt="" />
+        <img src={require("../assets/img/routesImg/map.png")} alt="map_build" />
       </Modal>
     </>
   );
