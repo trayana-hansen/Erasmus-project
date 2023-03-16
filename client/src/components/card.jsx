@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Modal, Space } from "antd";
+import { Button, Modal, Space } from "antd";
 import { Star } from "@phosphor-icons/react";
 import { useParams } from "react-router-dom";
 
@@ -9,23 +9,23 @@ export const CardRoute = () => {
   const endpoint = "http://localhost:4000/dl/route/monuments/";
   const [monuments, setMonuments] = useState([]);
 
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     getMonuments();
   }, []);
+
+  const showModal = () => {
+    setOpen(true);
+  };
 
   const getMonuments = async () => {
     axios(`${endpoint}${routeId}`).then((res) => setMonuments(res.data));
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
+  const handleCancel = (e) => {
+    console.log(e);
+    setOpen(false);
   };
 
   return (
@@ -34,11 +34,14 @@ export const CardRoute = () => {
         <div className="route-header">
           <Star size={36} color="#edbe40" weight="fill" />
           <h2>{route.toUpperCase()}</h2>
-          <img
-            src={"/img/icon_gifs/27-globe-flat.gif"}
-            alt="map"
-            onClick={showModal}
-          />
+          <Button type="text" style={{ padding: "0", height: "fit-content" }}>
+            <img
+              src={"/img/icon_gifs/27-globe-flat.gif"}
+              alt="map"
+              onClick={showModal}
+            />
+          </Button>
+
         </div>
         {monuments.length > 0 ?
           monuments.map((monument, index) => {
@@ -60,8 +63,14 @@ export const CardRoute = () => {
           })
           : null
         }
-
       </Space>
+      <Modal open={open}
+        onCancel={handleCancel}
+        style={{ padding: "0" }}>
+        <div className="modal-map">
+          <img src="/img/maproutes/popular-laspalmas.png" alt="" />
+        </div>
+      </Modal>
     </>
   );
 };
