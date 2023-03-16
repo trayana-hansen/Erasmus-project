@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/login";
 import { Cities } from "./pages/cityList";
-import { City } from "./pages/city";
+import { RouteInfo } from "./pages/routeInfo";
 import { Home } from "./pages/home";
 import { Register } from "./pages/register";
 import { RoutesPage } from "./pages/routes";
