@@ -12,11 +12,7 @@ export const Monument = sequelize.define("monument", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  latitude: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  longitude: {
+  addres: {
     type: DataTypes.STRING,
     allowNull: false,
   },
