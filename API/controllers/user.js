@@ -50,7 +50,12 @@ export async function createUser(req, res) {
             where: { email }
         })
 
+        let userByUsername = await User.findOne({
+            where: { username }
+        })
+
         if (user) return res.status(400).json({ errors: { msg: "User Already Exists" } })
+        if (userByUsername) return res.status(400).json({ errors: { msg: "Username Already Exists" } })
 
         let newUser = await User.create(
             {
@@ -126,10 +131,30 @@ export const updateUser = async (req, res) => {
         const { id } = req.params;
         const { username, password } = req.body;
 
+        let userByUsername = await User.findOne({
+            where: { username }
+        })
+
+        if (userByUsername) return res.status(400).json({ errors: { msg: "Username Already Exists" } })
+
         const user = await User.findByPk(id);
-        user.username = username;
-        user.password = password;
-        await user.save();
+        if (password && username) {
+            user.username = username;
+            user.password = bcrypt.hashSync(password, 10);
+            await user.save();
+        }
+        else if (password) {
+            user.password = bcrypt.hashSync(password, 10);
+            await user.save();
+        }
+        else if (username) {
+            user.username = username;
+            await user.save();
+        }
+        else {
+            return res.status(400).json({ errors: { msg: "Inputs cannot be empty" } })
+        }
+
 
         res.json(user);
     } catch (error) {
