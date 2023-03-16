@@ -36,7 +36,6 @@ export const RoutesPage = () => {
           <h2>{city.toUpperCase()}</h2>
         </Space>
         <div className="swiper-container">
-
           {routes.length > 0 ?
             <Swiper
               effect={"cards"}
