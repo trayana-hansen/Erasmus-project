@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/login";
 import { Cities } from "./pages/cityList";
-import { City } from "./pages/city";
+// import { RouteInfo } from "./pages/routeInfo";
 import { Home } from "./pages/home";
 import { Register } from "./pages/register";
 import { RoutesPage } from "./pages/routes";
+import { RouteInfo } from "./pages/route";
 import { Profile } from "./pages/profile";
 import "./assets/styling/app.scss";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/cities" element={<Cities />} />
         <Route path="/:city/:cityId/routes" element={<RoutesPage />} />
         <Route path="/user/:id/profile" element={<Profile />} />
+        <Route path="/route" element={<RouteInfo />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>

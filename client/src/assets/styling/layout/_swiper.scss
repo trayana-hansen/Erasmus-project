@@ -1,9 +1,15 @@
+.swiper-container {
+    overflow: hidden;
+}
+
 .swiper {
+    padding: 1.5em 0;
     width: 17em;
     height: 25em;
 }
 
 .swiper-slide {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,6 +17,7 @@
     font-size: 22px;
     font-weight: bold;
     color: #fff;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
 }
 
 .swiper-slide:nth-child(1n) {
@@ -32,5 +39,19 @@
     img {
         width: auto;
         height: 100%;
+    }
+}
+
+.description-img {
+    position: absolute;
+    bottom: 0%;
+    height: 5em;
+    background: rgb(254, 254, 254);
+    background: linear-gradient(0deg, rgba(254, 254, 254, 1) 0%, rgba(252, 252, 252, 1) 30%, rgba(252, 252, 252, .9) 45%, rgba(252, 252, 252, .7) 70%, rgba(249, 249, 249, 0.3) 85%, rgba(254, 254, 254, 0.0) 100%);
+    width: 100%;
+    color: black;
+
+    h4 {
+        padding: 1em;
     }
 }

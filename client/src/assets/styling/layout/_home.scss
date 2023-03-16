@@ -1,4 +1,4 @@
-@use '../base/global' as var;
+@use "../base/global" as var;
 
 .home-container {
   padding-top: 7vh;
@@ -32,7 +32,7 @@
 
   &:hover {
     color: white !important;
-    border-color: var.$blue ;
+    border-color: var.$blue;
   }
 }
 
