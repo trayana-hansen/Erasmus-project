@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Modal } from "antd";
+import { Modal, Space } from "antd";
 import { Star } from "@phosphor-icons/react";
+import { useParams } from "react-router-dom";
 
 export const CardRoute = () => {
-  const endpoint = "http://localhost:4000/dl/monuments";
+  const { route, routeId } = useParams();
+  const endpoint = "http://localhost:4000/dl/route/monuments/";
   const [monuments, setMonuments] = useState([]);
 
   useEffect(() => {
@@ -12,7 +14,7 @@ export const CardRoute = () => {
   }, []);
 
   const getMonuments = async () => {
-    axios(`${endpoint}`).then((res) => setMonuments(res.data));
+    axios(`${endpoint}${routeId}`).then((res) => setMonuments(res.data));
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,33 +30,38 @@ export const CardRoute = () => {
 
   return (
     <>
-      <div class="card">
-        <div class="card-text">
-          <section className="headerRoutes">
-            <Star size={36} color="#edbe40" weight="fill" />
-            <h3>{monuments.type}</h3>
-            <img
-              src={require("../assets/img/icon_gifs/globe_icon.gif")}
-              alt="map"
-              onClick={showModal}
-            />
-          </section>
-          <p>{monuments.description}</p>
-        </div>{" "}
-        <br />
-        <div class="card-image">
-          <img src={monuments.img} alt="Image 1" />
-          <img src={monuments.img} alt="Image 2" />
+      <Space direction="vertical" size="middle" align="center" style={{ display: 'flex', padding: "1em 0" }}>
+        <div className="route-header">
+          <Star size={36} color="#edbe40" weight="fill" />
+          <h2>{route.toUpperCase()}</h2>
+          <img
+            src={"/img/icon_gifs/27-globe-flat.gif"}
+            alt="map"
+            onClick={showModal}
+          />
         </div>
-      </div>
-      <Modal
-        title="Basic Modal"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <img src={require("../assets/img/routesImg/map.png")} alt="map_build" />
-      </Modal>
+        {monuments.length > 0 ?
+          monuments.map((monument, index) => {
+            return (
+              <>
+                <div className="monument-info">
+                  <div className="monument-text">
+                    <h3>{monument.name.toUpperCase()}</h3>
+                    <h5>{monument.description}</h5>
+                    <h6>{monument.addres}</h6>
+                  </div>
+                  <div className="monument-images">
+                    <div className="monument-img"><img src={`/img/monuments/${monument.name.replace(/\s+/g, '')}.png`} alt="" /></div>
+                    <div className="monument-img"><img src={`/img/monuments/${monument.name.replace(/\s+/g, '')}2.png`} alt="" /></div>
+                  </div>
+                </div>
+              </>
+            )
+          })
+          : null
+        }
+
+      </Space>
     </>
   );
 };

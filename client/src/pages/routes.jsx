@@ -24,8 +24,8 @@ export const RoutesPage = () => {
     axios(`${endpoint}${cityId}`).then((res) => setRoutes(res.data));
   };
 
-  const goTo = (routeId) => {
-    navigate(`/route/${routeId}`)
+  const goTo = (routeTitle, routeId) => {
+    navigate(`/route/${routeTitle}/${routeId}`)
   }
 
   return (
@@ -45,7 +45,7 @@ export const RoutesPage = () => {
               className="mySwiper">
               {routes.map((route) => {
                 return (
-                  <SwiperSlide onClick={() => goTo(route.id)} key={route.id}>
+                  <SwiperSlide onClick={() => goTo(route.title, route.id)} key={route.id}>
                     <div className="route-img">
                       <img src={`/img/routes/${route.title}.png`} alt="" />
                     </div>
