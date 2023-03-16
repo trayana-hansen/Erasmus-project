@@ -9,7 +9,10 @@ export const Register = () => {
 
   const onFinish = (values) => {
     register(values.email, values.username, values.password)
-    navigate("/cities")
+      .then(res => {
+        navigate("/cities")
+      })
+      .catch(err => console.log(err))
   };
 
   const onFinishFailed = (errorInfo) => {

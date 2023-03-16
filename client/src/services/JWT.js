@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:4000/dl/user/";
+const navigate = useNavigate
 
 export const register = (email, username, password) => {
   return axios.post(API_URL + "new", {
@@ -12,9 +14,9 @@ export const register = (email, username, password) => {
       if (res.data.accessToken) {
         localStorage.setItem("user", JSON.stringify(res.data));
       }
-      return res.data;
+      return res.data
     })
-    .catch(err => console.log(err))
+    .catch(err => { throw new Error(err.message) })
 };
 
 export const login = (email, password) => {
@@ -29,6 +31,7 @@ export const login = (email, password) => {
       }
       return res.data;
     })
+    .catch(err => { throw new Error(err.message) })
 };
 
 export const logout = () => {
