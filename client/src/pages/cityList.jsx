@@ -39,8 +39,8 @@ export const Cities = () => {
             display: "flex",
           }}
         >
-          {cities.length > 0
-            ? cities.map((city) => {
+          {cities.length > 0 ?
+            cities.map((city) => {
               const cityName = city.name.replace(/\s+/g, '');
               return (
                 <Card key={city.id} className="city-card" onClick={() => goTo(city.name, city.id)} style={{
