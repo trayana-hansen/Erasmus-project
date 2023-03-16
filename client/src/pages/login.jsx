@@ -17,16 +17,11 @@ export const Login = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
 
   const goTo = () => {
     navigate("/register");
   };
-  const goTo = () => {
-    navigate("/register");
-  };
+
 
   return (
     <>
