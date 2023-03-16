@@ -1,0 +1,19 @@
+@use '../base/global' as var;
+
+.city-title {
+  padding: 1em 0;
+  display: table-cell;
+  vertical-align: middle;
+
+  h2 {
+    max-width: 90%;
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+
+.start-btn {
+  padding: 0;
+  width: fit-content;
+  background-color: var.$blue
+}

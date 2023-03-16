@@ -7,14 +7,14 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const goTo = (dest) => {
-    console.log(dest);
     navigate(`/${dest}`);
   };
 
   return (
     <>
       <Bground />
-      <Space direction="vertical"
+      <Space
+        direction="vertical"
         size="middle"
         align="center"
         style={{ display: "flex" }}
@@ -43,7 +43,6 @@ export const Home = () => {
           </Button>
         </Space>
       </Space>
-
     </>
   );
 };

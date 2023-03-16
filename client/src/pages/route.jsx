@@ -1,14 +1,14 @@
-import { Logo } from "../components/logo";
 import { Bground } from "../components/bground";
+import Header from "../components/header";
+import { CardRoute } from "../components/card";
+import { useState } from "react";
 
-
-export const Route = () => {
-
-    return (
-        <>
-            <Bground />
-            <Logo />
-
-        </>
-    )
-}
+export const RouteInfo = () => {
+  return (
+    <>
+      <Bground />
+      <Header />
+      <CardRoute  />
+    </>
+  );
+};

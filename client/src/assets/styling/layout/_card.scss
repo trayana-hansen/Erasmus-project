@@ -1,0 +1,72 @@
+.route-header {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.monument-info {
+  width: 85vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap: 2em;
+}
+
+.monument-text {
+  width: 80%;
+
+  h3 {
+    font-size: 1.35em;
+  }
+
+  h5 {
+    font-size: 1em;
+  }
+
+  h6 {
+    font-size: .8em;
+    font-weight: 700;
+  }
+}
+
+.monument-images {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.monument-img {
+  width: 6em;
+  height: 8.5em;
+
+  img {
+    border-radius: 1em;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.modal-map {
+  // position: fixed;
+  // top: 10%;
+  // left: 5vw;
+  z-index: 100;
+  // width: 100%;
+  height: 80vh;
+
+  img {
+    height: 100%;
+  }
+}
+
+.ant-modal-content {
+  padding: 0 !important;
+  height: 5em !important;
+}
+
+.ant-modal-footer {
+  display: none !important;
+}
