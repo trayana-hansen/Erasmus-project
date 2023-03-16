@@ -12,13 +12,13 @@ export const Login = () => {
             .catch(err => console.log(err))
     };
 
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
 
-    const goTo = () => {
-        navigate('/register')
-    }
+  const goTo = () => {
+    navigate("/register");
+  };
 
     return (
         <>
@@ -38,7 +38,7 @@ export const Login = () => {
                             <Input.Password />
                         </Form.Item>
                         <Button className="submit-btn" htmlType="submit" size="large">
-                            SUBMIT
+                            Submit
                         </Button>
                     </Form>
                 </Space>
